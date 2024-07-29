@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+<meta charset="UTF-8" />
+<title>한바탕 : 소고기정보</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+	crossorigin="anonymous" />
+<link rel="stylesheet" href="/css/mainCategory.css">
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img class="hanbatang" src="images/HANBATANG.png"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarScroll">
+          <div class="justify-content-center">
+          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <li class="nav-item">
+              <a class="nav-link" href="/wayToMarket">매장안내</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/introCompany">회사소개</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/beefInfo">소고기정보</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/board">고객센터</a>
+            </li>
+            <li th:if="${session.loginSession != null}" class="nav-item">
+              <p th:text="${session.loginSession.member_nickname}+'님'" class="navName"></p>
+            </li>
+            <li class="nav-item">
+              <div th:if="${session.loginSession == null}">
+              <a class="nav-link" href="/login">로그인</a>
+              </div>
+              <div th:if="${session.loginSession != null}">
+              <a class="nav-link" href="/logout">로그아웃</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/memberSignUp">회원가입</a>
+            </li>
+          </ul>
+      </div>
+        <div class="search">
+          <form class="d-flex float-right" role="search">
+              <button class="btn btn-outline" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                </svg></button>
+              
+            <input class="form-control me-2" type="search" placeholder="검색" aria-label="Search">
+          
+            <a class="signin" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="20" fill="black" class="bi bi-person-circle" viewBox="0 0 16 16">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+            </svg></a>
+            <a  href="#"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="20" fill="black" class="bi bi-cart4" viewBox="0 0 16 16">
+              <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
+            </svg></a>
+          </form>
+        </div>
+        </div>
+      </div>
+    </nav>
+    
+    <div class="beefKindsInfoContainer">
+	    <img src="/images/beefInfo.jpg">
+	    
+	    <table class="beefTable">
+	    	<thead>
+	    		<tr>
+	    			<th class="firstArea">부위</th>
+	    			<th class="secondArea">설명</th>
+	    			<th class="thirdArea">주로 만드는 요리</th>
+	    		</tr>
+	    	</thead>
+	    	<tbody>
+	    		<tr>
+	    			<td class="firstArea">등심</td>
+	    			<td class="secondArea"><p>소의 등골뼈에 붙은 살코기.</p>
+						등심은 갈비뼈의 바깥쪽으로 붙어 있는 것이고 갈비의 안쪽에 붙어 있는 것은 안심이다. 등심은 안심보다 길고 크다. 
+						이 부위의 외부에서 볼 수 있는 특징은 갈비가 붙어 있던 부분에 가로로 지방이 끼어 있어 희끗희끗한 줄무늬가 보인다. 
+						등심을 얇게 썰었을 때의 특징은 반달 모양의 황색 인대가 있는 것이다.
+					</td>
+	    			<td class="thirdArea">스테이크, 구이</td>
+	    		</tr>
+	    		<tr>
+	    			<td class="firstArea">안심</td>
+	    			<td class="secondArea"><p>쇠고기 중 가장 부드럽고 연하며 지방이 적고 담백하며 맛이 좋아 최고급으로 취급되는 부위.</p>
+						등심 안쪽에 위치한 부분으로 쇠고기 중에서 결이 곱고 부드러우며 소 한 마리에서 겨우 2~3% 정도 밖에 얻을 수 없는 최고급 부위이다. 
+						지방이 적고 담백하여 살코기로서 맛이 좋은 부위이다. 안심 중 가장 붉은 부위를 제비추리라고 한다. 안심을 우리나라 요리에서는 구이, 
+						전골, 산적의 용도로 이용하며, 서양요리에서는 로스트, 고급스테이크(안심스테이크), 바비큐, 브로일에 이용한다.
+					</td>
+	    			<td class="thirdArea">스테이크, 구이</td>
+	    		</tr>
+	    		<tr>
+	    			<td class="firstArea">목심</td>
+	    			<td class="secondArea"><p>윗등심과 소 복부 위에 형성된 부위, 소의 목 부위.</p>
+						운동을 많이 하는 부위로 지방이 적고 결합조직이 많아 육질이 질기고 젤라틴이 풍부하다. 
+						등심보다 질기고 근육이 단단하며, 고기결이 거칠다.
+					</td>
+	    			<td class="thirdArea">스테이크, 구이</td>
+	    		</tr>
+	    		<tr>
+	    			<td class="firstArea">채끝</td>
+	    			<td class="secondArea"><p>소의 등뼈 끝부분 요추에서 바깥쪽으로 형성된 부위의 살코기.</p>
+						등심과 연결된 부위로 안심을 에워싸고 있으며, 치마살을 포함하고 있다. 쇠고기 본래의 맛을 느낄 수 있는 최상의 부위이다. 
+						도체중량 254.51㎏의 암소를 잡았을 때 약 6.8㎏(2.67%)정도 밖에 나오지 않는 부위로 가치와 수요가 큰 부분이다. 
+						단일 근육으로 등심과 비슷한 모양을 하고 있으나 지방이 적고 살코기가 많다.
+					</td>
+	    			<td class="thirdArea">스테이크, 구이</td>
+	    		</tr>
+	    		<tr>
+	    			<td class="firstArea">우둔</td>
+	    			<td class="secondArea"><p>소의 엉덩이 안쪽 부위인 우둔(Inside round)에 포함되는 살코기 부분.</p>
+						지방이 적고 살코기가 많아 여러 요리에 사용할 수 있다. 우둔살은 근육으로 이루어진 둥근 모양의 가장 큰 고기뭉치로 
+						'뭉치' 또는 '뭉치살'이라 하며, 길짐승의 엉덩이를 '방둥이'이라 하여 '방심살(방둥이의 힘살)'이라고도 한다. 
+						우리말에서 같은 부위를 뜻하는 '엉덩이, 궁둥이, 볼기'는 얼굴의 볼처럼 볼록한 모양의 '볼기'를 중심으로 '엉덩이'는 
+						볼기의 윗부분을, '궁둥이'는 볼기의 아랫부분을 지칭하고 있다.
+					</td>
+	    			<td class="thirdArea">장조림,불고기,육포</td>
+	    		</tr>
+	    		<tr>
+	    			<td class="firstArea">앞다리</td>
+	    			<td class="secondArea"><p>쇠고기 앞다리 부위 분할과 골발 시 생산되며, 견갑골과 앞다리 살에 있는 표면지방 및 두꺼운 근막을 제거하고 정형한 것.</p>
+						앞다리에는 부채덮개살, 꾸리살, 부챗살, 앞다리살, 갈비덧살 등이 포함되어 있다. 오금에 붙은 고기로 고기 결이 곱고 
+						힘줄이나 막 또는 결합조직이 많이 있어 부분적으로 약간 질긴 곳도 있다. 전체적으로 운동근이 많아 뭉쳐있고 육색이 짙다. 
+						앞다리 부위는 육질이 연한 부위와 단단한 부위가 교차하며, 근육의 결방향 또한 다양하여 근육 결에 따라 작게 분할해야 한다.
+					</td>
+	    			<td class="thirdArea">탕,육회,장조림</td>
+	    		</tr>
+	    		<tr>
+	    			<td class="firstArea">설도</td>
+	    			<td class="secondArea"><p>소의 뒷다리 중 넓적다리 앞쪽과 위쪽에 붙어있는 궁둥이의 살코기.</p>
+						설도에는 보섭살, 도가니살, 삼각살 등이 포함되어 있다. 예전에 이 부위는 '구녕살, 밑살' 또는 '비역살'이라 불렀으며, 
+						식용으로 하는 고기의 이름으로는 좋지 않기 때문에 현재는 쓰이지 않고 있다. 설도를 '궁둥이살' 또는 '항문살'이라 부르지 않은 이유는 
+						짐승의 좌우 궁둥이살 한가운데 똥구멍이라는 동물의 배설기관이 있어 늘 지저분한 오물과 똥냄새, 방귀냄새를 상상하게 하므로 식용고기의 
+						이름으로 사용하기에 적합치 않고 이렇게 직설적인 언어로 고기를 사고 팔기가 민망스러워 우회적인 표현으로 '똥오줌을 배설하는 통로'라는 
+						뜻을 가진 설도(泄道)라는 말을 사용하게 되었다고 한다.
+					</td>
+	    			<td class="thirdArea">육포,육회,불고기</td>
+	    		</tr>
+	    		<tr>
+	    			<td class="firstArea">사태</td>
+	    			<td class="secondArea"><p>쇠고기 뒷사태에서 뭉치사태와 아롱사태를 떼어낸 나머지 부위와 앞쪽 허벅지에 붙은 살코기인 앞사태를 포함하여 이르는 말.</p>
+						'사태'라는 말은 원래 '샅의 고기'라 하던 것이 자연스럽게 '사태고기'가 되어 나온 순수한 우리말로, 소 다리의 '샅에'  
+						붙은 고기를 ‘사태’라 하였다. 사태는 쇠고기 부위중 국거리용으로 소비자들이 가장 많이 찾는 부위로 소의 앞다리와 뒷다리의 오금에 
+						붙은 정강이살 고기이다. 양지와 같이 힘줄이나 막이 많이 섞여 질기지만 반면에 기름기가 적어 담백하면서 깊은 맛이 난다. 
+						고기의 결이 곱고 풍미가 좋으며 장시간 물에 넣어 오래 익히면 연해져서 먹기가 좋아진다. 
+						한국음식으로는 국, 찌개. 찜, 불고기 등에 이용하며, 서양에서는 스튜를 만드는데 이용한다.
+					</td>
+	    			<td class="thirdArea">국,찌개,찜</td>
+	    		</tr>
+	    		<tr>
+	    			<td class="firstArea">양지</td>
+	    			<td class="secondArea"><p>소 몸통의 앞가슴부터 복부 아래쪽 부위의 살코기.</p>
+						소의 여러 부위 중에서 지방과 결합조직이 많은 편이고 육질은 질기다. 양지부위는 피하지방 및 근육간 지방조직이 매우 발달되어 
+						도축작업시 피하지방은 0.5cm 내외가 부착되도록 분리·정형하고 근육간 지방 덩어리는 최대한 제거해야 한다.
+					</td>
+	    			<td class="thirdArea">탕,국,장조림</td>
+	    		</tr>
+	    		<tr>
+	    			<td class="firstArea">갈비</td>
+	    			<td class="secondArea"><p>소의 갈비뼈와 뼈 사이에 있는 살코기.</p>
+						한자로 갈비 늑(肋)자와 사이 간(間)자를 써서 늑간(肋間)살 이라고 하며, 갈비뼈와 뼈 사이에 있는 살코기를 가리킨다. 
+						갈비뼈 사이에 있는 손가락 모양의 길다란 고기로 '핑거미트(finger meat)'라고도 한다. 
+						근육과 지방이 3중으로 겹쳐있어 맛이 좋으며 막이 많고 근육이 비교적 거칠고 단단한 부위지만 지방교잡이 있어 맛이 좋다. 
+						이 부위는 손질하는데 시간이 많이 걸리지만 등심보다 씹는 맛이 좋고 쫀득한 질감이 있어 여성들이 많이 찾는다.
+					</td>
+	    			<td class="thirdArea">구이,찜</td>
+	    		</tr>
+	    	</tbody> 
+	    </table>
+    </div>
+
+    <footer class="footer mt-2 pt-2">
+      <div class="container text-center">
+        <p>&copy;2024 브랜드 프리미엄소고기. ALL Rights Reserved.</p>
+        <p><a href="#">개인정보처리방침</a> | <a href="#">이용약관</a></p>
+      </div>
+    </footer>
+    <div class="fixedArea">
+        <a href="/chatbot"><img src="/images/chatbot.png"></a>
+        <a href="#"><img src="/images/top.png"></a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>한바탕 : 챗봇</title>
+    <link rel="stylesheet" href="/css/chatbotStyle.css">
+      <script type='text/javascript' src="http://code.jquery.com/jquery-3.7.1.js"></script>
+        </head>
+  <body>
+    <div id="chat-container">
+      <div id="chat-box">
+        <h2 class="botTitle">HANBATANG BOT</h2>
+        <p class="bot">안녕하세요. 원하시는 질문을 클릭해주세요.</p>
+        <div class="questionBox">
+          <br>
+        <h3 id="answer1" style="display: none;"><a href="/findId">아이디찾기로 이동</a></h3>
+        <button id="questionButton1">아이디를 모르겠어요</button>
+    </div>
+    <div class="questionBox">
+        <h3 id="answer2" style="display: none;"><a href="/findPw">비밀번호찾기로 이동</a></h3>
+        <button id="questionButton2">비밀번호를 모르겠어요</button>
+    </div>
+    <div class="questionBox">
+        <h3 id="answer3" style="display: none;">마이페이지->주문목록->상품선택->교환,반품 신청</h3>
+        <button id="questionButton3">교환/반품 하고싶어요</button>
+    </div>
+
+    <div class="questionBox">
+      <h3 id="answer5" style="display: none;">이메일주소가 현재 사용하는
+        이메일주소와 다를경우 고객센터 연락주세요</h3>
+      <button id="questionButton5">이메일인증을 하는데 인증번호가 오지 않아요</button>
+  </div>
+  <div class="questionBox">
+    <h3 id="answer6" style="display: none;">마이페이지->개인정보확인/수정->비밀번호입력->회원탈퇴</h3>
+    <button id="questionButton6">회원탈퇴는 어떻게 하나요</button>
+</div>
+<div class="questionBox">
+  <h3 id="answer4" style="display: none;">한바탕 번호로 전화주세요</h3>
+  <button id="questionButton4">기타사항</button>
+</div>
+<hr>
+<h3 style="text-align: center;"><a href="/mainPage">홈으로 이동</a></h3>
+      </div>
+      </div>
+  </body>
+  <script src="/js/chatbotJs.js"></script>
+</html>

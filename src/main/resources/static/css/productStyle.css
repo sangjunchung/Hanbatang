@@ -1,0 +1,139 @@
+.footer {
+	background-color: #F8F9FA;
+	color: black;
+	padding: 10px 0;
+	width: 100%;
+	bottom: 0;
+}
+.footer p {
+	margin-bottom: 5px;
+}
+.footer a {
+	color: black;
+	text-decoration: none;
+}
+.footer a:hover {
+	text-decoration: underline;
+}
+
+.btn:hover {
+	background-color: black;
+	color: white;
+}
+
+.signin {
+	width: 60px;
+}
+
+.nav-item {
+	padding-right: 20px;
+}
+
+.container {
+	display: flex;
+}
+
+.product img {
+	border-radius: 20px;
+	width: 550px;
+	height: 500px;
+}
+
+.productdescription {
+	background-color: #595959;
+	border-radius: 10px;
+	color: white;
+	padding: 15px;
+	width: 500px;
+	box-shadow: 0 0 3px black;
+}
+
+.main {
+	margin: 0 auto;
+	display: flex;
+	padding: 50px;
+}
+
+.product {
+	padding-right: 100px;
+}
+
+.cart, .byProduct {
+	padding: 10px;
+	border-radius: 10px;
+	border: none;
+	float: inline-end;
+	background-color: aliceblue;
+}
+
+.cart:hover, .byProduct:hover {
+	background-color: black;
+	color: white;
+}
+
+.productdescription h4 {
+	text-align: center;
+	color: rgb(247, 165, 162);
+}
+
+.productdescription small {
+	color: #D4D4D2;
+}
+
+.productdescription ul li {
+	list-style-type: none;
+}
+
+.productdescription strong {
+	font-size: x-large;
+	color: rgb(247, 174, 189);
+}
+
+.productdescription button {
+	margin-right: 10px;
+}
+
+header {
+	background-color: white;
+	width: 100%;
+}
+
+.review {
+	color: yellowgreen;
+	padding: 20px;	
+}
+
+.container,body,  .goods, footer {
+	background-image: url(/images/parianMarble.jpg);
+}
+.vid .steak {
+	width: 60%;
+	height: 500px;
+}
+.vid {
+	padding: 20px;
+
+}
+.page {
+	background-color: white;
+	width: 70%;
+	height: 70%;
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+	box-shadow: 0 0 2px black;
+	border-radius: 10px;
+	
+}
+.black-line {
+	background-color: black;
+	padding: 40px;
+	width: 100%;
+}
+
+.navName {
+	margin-top: 8px;
+	margin-bottom: 0px;
+	color: green;
+	font-weight: bold;
+}

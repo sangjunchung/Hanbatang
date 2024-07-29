@@ -1,0 +1,84 @@
+.parianmarble,footer {
+    background-image:  url(/images/parianmarble.jpg);
+    background-size: cover;
+}
+.footer {
+    background-color: #F8F9FA;
+    color: black;
+    padding: 10px 0;
+    width: 100%;
+    bottom: 0;
+  }
+  .footer a {
+    color: black;
+    text-decoration: none;
+  }
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  .btn:hover{
+      background-color: black;
+      color: white;
+  }
+  .signin , .cart {
+      width: 60px;
+  }
+  .nav-item {
+    padding-right: 20px;
+  }
+  .search {
+    margin-block-end: auto;
+  }
+  .fixedArea {
+width: 100px;
+height: 200px;
+border: none;
+border-radius: 20px;
+bottom: 30px;
+right: 30px;
+position: fixed;
+background-color: #FA8585;
+}
+.fixedArea a {
+width: 100%;
+height: 50%;
+text-decoration: none;
+text-align: center;
+display: block;
+line-height: 40px;
+}
+.fixedArea img {
+width: 80%;
+height: 80%;
+margin: 10px;
+}
+.BoardTextPlace{
+width: 90%;
+height: 700px;
+justify-content: center;
+background-color: white;
+margin: auto;
+padding: 10px;
+}
+.container{
+	margin: auto;
+	padding: 40px;
+}
+.BoardInformation{
+	margin: auto;
+	margin-left: 20px;
+}
+h3{
+	margin-left: 50px;
+	margin: 20px;
+}
+h6{
+	margin-left: 50px;
+}
+
+.navName{
+	margin-top: 8px;
+	margin-bottom: 0px;
+	color: green;
+	font-weight: bold;
+}

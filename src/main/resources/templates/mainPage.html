@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>한바탕</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+	crossorigin="anonymous" />
+<link rel="stylesheet" href="/css/mainPageStyle.css">
+<link rel="stylesheet" href="/css/chatbotStyle.css">
+<script type='text/javascript'
+	src="http://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="/js/mainPageJs.js"></script>
+
+
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg bg-body-tertiary">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/"><img class="hanbatang"
+				src="/images/HANBATANG.png"></a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+				aria-controls="navbarScroll" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse justify-content-center"
+				id="navbarScroll">
+				<div class="justify-content-center">
+					<ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+						style="--bs-scroll-height: 100px;">
+						<li class="nav-item"><a class="nav-link" href="/wayToMarket">매장안내</a>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="/introCompany">회사소개</a>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="/beefInfo">소고기정보</a>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="/board">고객센터</a>
+						</li>
+						<li th:if="${session.loginSession != null}" class="nav-item">
+							<p th:text="${session.loginSession.member_nickname}+'님'"
+								class="navName"></p>
+						</li>
+						<li class="nav-item">
+							<div th:if="${session.loginSession == null}">
+								<a class="nav-link" href="/login">로그인</a>
+							</div>
+							<div th:if="${session.loginSession != null}">
+								<a class="nav-link" href="/logout">로그아웃</a>
+							</div>
+						</li>
+						<li th:if="${session.loginSession == null}" class="nav-item">
+							<a class="nav-link" href="/memberSign">회원가입</a>
+						</li>
+						<li th:if="${session.loginSession != null}" class="nav-item">
+							<a class="nav-link" href="/getMyPage">마이페이지</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="parianmarble">
+		<div class="mainSlide">
+			<div id="carouselExampleIndicators" class="carousel slide">
+				<div class="carousel-indicators">
+					<button type="button" data-bs-target="#carouselExampleIndicators"
+						data-bs-slide-to="0" class="active" aria-current="true"
+						aria-label="Slide 1"></button>
+					<button type="button" data-bs-target="#carouselExampleIndicators"
+						data-bs-slide-to="1" aria-label="Slide 2"></button>
+					<button type="button" data-bs-target="#carouselExampleIndicators"
+						data-bs-slide-to="2" aria-label="Slide 3"></button>
+				</div>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<video src="/images/beef2.mp4" class="d-block w-100" alt="beef2"
+							autoplay muted loop></video>
+					</div>
+					<div class="carousel-item">
+						<img src="/images/살치살(일본).jpg" class="d-block w-100" alt="살치살(일본)">
+					</div>
+					<div class="carousel-item">
+						<img src="/images/꽃등심(호주).png" class="d-block w-100" alt="꽃등심(호주)">
+					</div>
+				</div>
+				<button class="carousel-control-prev" type="button"
+					data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button"
+					data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="black-line"></div>
+
+	<div class="parianmarble" id="mainGoodsSpace">
+		<div class="emall_tabs has-slider">
+			<div class="goods_kinds active" data-target="등심">등심</div>
+			<div class="goods_kinds" data-target="갈비">갈비</div>
+			<div class="goods_kinds" data-target="양지">양지</div>
+			<div class="goods_kinds" data-target="사태">사태</div>
+		</div>
+
+		<div class="goods">
+			<div class="tab-content">
+				<div th:each="p : ${product}">
+					<h2 th:text="${p.goods_name}"></h2>
+					<a href="/productPage/${p.goods_no}"> <img class="goodsimg"
+						th:src="${p.img_path}" th:alt="${p.GOODS_NAME}">
+						<h4>상품 설명</h4>
+						<p th:text="${p.goods_text}"></p>
+						<p>
+							가격: <span th:text="${p.goods_price} + '원'"></span>
+						</p>
+					</a>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous">
+		
+	</script>
+
+	<div class="fixedArea">
+		<a href="javascript:void(0);" id="openChatbot"><img
+			src="/images/chatbot.png"></a> <a href="#"><img
+			src="/images/top.png"></a>
+	</div>
+
+	<!-- 모달 배경 -->
+	<div id="modalBackground"></div>
+
+	<!-- 모달 -->
+	<div id="chatModal">
+		<div id="chat-container">
+			<div id="chat-box">
+				<span class="close-button" id="closeChatbot">&times;</span>
+				<h2 class="botTitle">HANBATANG BOT</h2>
+				<hr>
+				<p class="bot">안녕하세요. 원하시는 질문을 클릭해주세요.</p>
+				<hr>
+				<div class="questionBox">
+					<h3 id="answer1" style="display: none;">
+						<a href="/findId">아이디찾기로 이동</a>
+					</h3>
+					<button id="questionButton1">아이디를 모르겠어요</button>
+				</div>
+				<div class="questionBox">
+					<h3 id="answer2" style="display: none;">
+						<a href="/findPw">비밀번호찾기로 이동</a>
+					</h3>
+					<button id="questionButton2">비밀번호를 모르겠어요</button>
+				</div>
+				<div class="questionBox">
+					<h3 id="answer3" style="display: none;">마이페이지->주문목록->상품선택->교환,반품
+						신청</h3>
+					<button id="questionButton3">교환/반품 하고싶어요</button>
+				</div>
+				<div class="questionBox">
+					<h3 id="answer5" style="display: none;">이메일주소가 현재 사용하는 이메일주소와
+						다를경우 고객센터 연락주세요</h3>
+					<button id="questionButton5">이메일인증을 하는데 인증번호가 오지 않아요</button>
+				</div>
+				<div class="questionBox">
+					<h3 id="answer6" style="display: none;">마이페이지->개인정보확인/수정->비밀번호입력->회원탈퇴</h3>
+					<button id="questionButton6">회원탈퇴는 어떻게 하나요</button>
+				</div>
+				<div class="questionBox">
+					<h3 id="answer4" style="display: none;">한바탕 번호로 전화주세요</h3>
+					<button id="questionButton4">기타사항</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+	<footer class="footer pt-2">
+		<div class="container text-center">
+			<p>&copy;2024 브랜드 프리미엄소고기. ALL Rights Reserved.</p>
+			<p>
+				<a href="#">개인정보처리방침</a> | <a href="#">이용약관</a>
+			</p>
+		</div>
+	</footer>
+
+	<script>
+		// 챗봇 열기
+		document.getElementById('openChatbot').onclick = function() {
+			document.getElementById('modalBackground').style.display = 'block';
+			document.getElementById('chatModal').style.display = 'block';
+		}
+
+		// 종료 버튼 클릭 시 모달 닫기
+		document.getElementById('closeChatbot').onclick = function() {
+			document.getElementById('modalBackground').style.display = 'none';
+			document.getElementById('chatModal').style.display = 'none';
+		}
+
+		// 모달 배경 클릭 시 닫기
+		document.getElementById('modalBackground').onclick = function() {
+			document.getElementById('modalBackground').style.display = 'none';
+			document.getElementById('chatModal').style.display = 'none';
+		}
+	</script>
+	<script src="/js/chatbotJs.js"></script>
+</body>
+</html>

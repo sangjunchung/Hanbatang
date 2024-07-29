@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>한바탕 : 고객센터</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="/css/boardStyle.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img class="hanbatang" src="/images/HANBATANG.png"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarScroll">
+          <div class="justify-content-center">
+          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <li class="nav-item">
+              <a class="nav-link" href="/wayToMarket">매장안내</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/introCompany">회사소개</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/beefInfo">소고기정보</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/board">고객센터</a>
+            </li>
+            <li th:if="${session.loginSession != null}" class="nav-item">
+              <p th:text="${session.loginSession.member_nickname}+'님'" class="navName"></p>
+            </li>
+            <li class="nav-item">
+              <div th:if="${session.loginSession == null}">
+              <a class="nav-link" href="/login">로그인</a>
+              </div>
+              <div th:if="${session.loginSession != null}">
+              <a class="nav-link" href="/logout">로그아웃</a>
+              </div>
+            </li>
+            <li th:if="${session.loginSession == null}" class="nav-item">
+              <a class="nav-link" href="/memberSign">회원가입</a>
+            </li>
+            <li th:if="${session.loginSession != null}" class="nav-item">
+              <a class="nav-link" href="/getMyPage">마이페이지</a>
+            </li>
+          </ul>
+     	 </div>
+        </div>
+      </div>
+    </nav>
+
+      <div class="parianmarble">
+      <div class="container">
+        <h2>고객센터</h2>
+        <div th:if="${session.loginSession != null}">
+        <div class="mb-3 d-flex justify-content-end">
+          <button id="newText" class="btn btn-primary"><a href="/uploadBoard">새 글 작성</a></button>
+        </div>
+        </div>
+       <div th:if="${session.loginSession == null}">
+        <div class="mb-3 d-flex justify-content-end">
+        	<button id="newText" class="btn btn-primary"><a href="/login">로그인 후 글 작성</a></button>
+        	</div>
+      </div>
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th>게시글번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr th:each=" b : ${board}" >
+              <td th:text="${b.board_no}"></td>
+              <td><a th:text="${b.board_title}" th:href="@{'/readBoard/' + ${b.board_no}}"></a></td>
+              <td th:text="${b.member_name}"></td>
+          </tbody>
+        </table>
+      </div>
+      </div>
+
+
+
+
+
+
+      <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    >
+  </script>
+  <footer class="footer pt-2">
+    <div class="container text-center">
+      <p>&copy;2024 브랜드 프리미엄소고기. ALL Rights Reserved.</p>
+      <p><a href="#">개인정보처리방침</a> | <a href="#">이용약관</a></p>
+    </div>
+  </footer>
+      <div class="fixedArea">
+        <a href="/chatbot"><img src="/images/chatbot.png"></a>
+        <a href="#"><img src="/images/top.png"></a>
+      </div>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+/* 공통 스타일 */
+.botTitle {
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.questionBox {
+	margin-bottom: 15px;
+	text-align: right;
+}
+
+.questionBox button {
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	padding: 8px 16px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	align-self: flex-end;
+}
+
+.questionBox button:hover {
+	background-color: #0056b3;
+}
+
+.questionBox h3 {
+	text-align: center;
+	font-size: 16px; 
+}
+
+#chat-box h3 a {
+	color: #007bff;
+	text-decoration: none;
+	transition: color 0.3s;
+}
+
+#chat-box h3 a:hover {
+	color: #0056b3;
+}
+
+#chatModal {
+	display: none; 
+	position: fixed;
+	z-index: 1001;
+	right: 20px;
+	bottom: 20px;
+	max-width: 400px;
+	max-height: calc(100vh - 40px);
+	overflow-y: auto;
+	background-color: #ffffff;
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+	padding: 20px;
+	border-radius: 10px;
+}
+
+#chatModal::-webkit-scrollbar {
+	width: 8px;
+}
+
+#chatModal::-webkit-scrollbar-track {
+	background: #f1f1f1;
+	border-radius: 10px;
+}
+
+#chatModal::-webkit-scrollbar-thumb {
+	background: #888;
+	border-radius: 10px;
+}
+
+#chatModal::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+.close-button {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+	color: #555;
+	font-size: 20px;
+}
+
+.close-button:hover {
+	color: #333;
+}

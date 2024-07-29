@@ -1,0 +1,227 @@
+/* 공통 */
+body, footer {
+	background-image: url(/images/parianMarble.jpg);
+	background-size: cover;
+}
+
+.footer {
+	background-color: #f8f9fa;
+	color: black;
+	padding: 10px 0;
+	width: 100%;
+	bottom: 0;
+}
+
+.footer p {
+	margin-bottom: 5px;
+}
+
+.footer a {
+	color: black;
+	text-decoration: none;
+}
+
+.footer a:hover {
+	text-decoration: underline;
+}
+
+.btn:hover {
+	background-color: black;
+	color: white;
+}
+
+.signin, .cart {
+	width: 60px;
+}
+
+.nav-item {
+	padding-right: 20px;
+}
+
+.search {
+	margin-block-end: auto;
+}
+
+.navName {
+	margin-top: 8px;
+	margin-bottom: 0px;
+	color: green;
+	font-weight: bold;
+}
+
+/* 사이드바 */
+.fixedArea {
+	width: 100px;
+	height: 200px;
+	border: none;
+	border-radius: 20px;
+	bottom: 30px;
+	right: 30px;
+	position: fixed;
+	background-color: #FA8585;
+}
+
+.fixedArea a {
+	width: 100%;
+	height: 50%;
+	text-decoration: none;
+	text-align: center;
+	display: block;
+	line-height: 40px;
+}
+
+.fixedArea img {
+	width: 80%;
+	height: 80%;
+	margin: 10px;
+}
+
+/* 매장안내 */
+.marketGuideContainer {
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.marketGuideContainer img {
+	width: 100%;
+	margin: 0 auto;
+	border: 1px solid black;
+}
+
+.marketAddress {
+	display: inline-flex;
+	font-size: xx-large;
+}
+
+.marketAddress a {
+	margin-left: 30px;
+}
+
+.marketAddress button {
+	background-color: black;
+	color: white;
+}
+
+.marketInfo {
+	display: block;
+	margin: 0 auto;
+	width: 90%;
+}
+
+.marketInfoTable {
+	width: 50%;
+	border: none;
+}
+
+.marketDetailInfo {
+	display: inline-block;
+	width: 14%;
+}
+
+/* 소고기정보 */
+.beefKindsInfoContainer {
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.beefKindsInfoContainer img {
+	width: 100%;
+	margin: 0 auto;
+	border: 1px solid black;
+}
+
+.beefTable {
+	width: 100%;
+	margin-top: 30px;
+}
+
+.beefTable th {
+	text-align: center;	
+	padding: 10px;
+}
+
+.beefTable th {
+	border: 1px solid black;
+}
+
+.beefTable td {
+	border: 1px solid black;
+}
+
+.beefTable p {
+	font-weight: bold;
+}
+
+.firstArea {
+	width: 10%;
+	text-align: center;
+	font-weight: bold;
+}
+
+.secondArea {
+	width: 80%;
+	padding: 5px;
+}
+
+.thirdArea {
+	width: 10%;
+	text-align: center;
+}
+
+/* 회사소개 */
+.introCompanyContainer {
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	background-color: white;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.introCompanyLogo {
+	width: 75%;
+	display:block;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.introCompanyLogo img {
+	width: 70%;
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+
+.introCompanyInfo {
+	width: 80%;
+	display:block;
+	margin: 0 auto;
+}
+
+.introCompanyInfo img {
+	width: 100%;
+	display: block;
+	margin: 0 auto;
+}
+
+.introCompanyText {
+	width: 100%;
+	display:block;
+	margin: 0 auto;
+	padding-left: 150px;
+}
+.introCompanyText2{
+	display:flex;
+}
+
+.navName{
+	margin-top: 8px;
+	margin-bottom: 0px;
+	color: green;
+	font-weight: bold;
+}

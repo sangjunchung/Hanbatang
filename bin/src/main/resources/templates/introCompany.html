@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+<meta charset="UTF-8" />
+<title>한바탕 : 회사정보</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+	crossorigin="anonymous" />
+<link rel="stylesheet" href="/css/mainCategory.css">
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img class="hanbatang" src="images/HANBATANG.png"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarScroll">
+          <div class="justify-content-center">
+          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <li class="nav-item">
+              <a class="nav-link" href="/wayToMarket">매장안내</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/introCompany">회사소개</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/beefInfo">소고기정보</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/board">고객센터</a>
+            </li>
+            <li th:if="${session.loginSession != null}" class="nav-item">
+              <p th:text="${session.loginSession.member_nickname}+'님'" class="navName"></p>
+            </li>
+            <li class="nav-item">
+              <div th:if="${session.loginSession == null}">
+              <a class="nav-link" href="/login">로그인</a>
+              </div>
+              <div th:if="${session.loginSession != null}">
+              <a class="nav-link" href="/logout">로그아웃</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/memberSignUp">회원가입</a>
+            </li>
+          </ul>
+      </div>
+        <div class="search">
+          <form class="d-flex float-right" role="search">
+              <button class="btn btn-outline" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                </svg></button>
+              
+            <input class="form-control me-2" type="search" placeholder="검색" aria-label="Search">
+          
+            <a class="signin" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="20" fill="black" class="bi bi-person-circle" viewBox="0 0 16 16">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+            </svg></a>
+            <a  href="#"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="20" fill="black" class="bi bi-cart4" viewBox="0 0 16 16">
+              <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
+            </svg></a>
+          </form>
+        </div>
+        </div>
+      </div>
+    </nav>
+    
+    <div class="introCompanyContainer">
+    	<div class="introCompanyLogo">
+    		<img src="/images/HANBATANG2.png">
+    		<p>
+	    		안녕하세요! <strong>HANBATANG</strong>에 오신 것을 환영합니다.<br>
+				저희는 프리미엄 소고기 전문 판매점입니다. <br>
+				국내산과 외국산 최고급 소고기를 부위별로 엄선하여 제공하며, 최상의 품질과 맛을 자랑합니다.
+			</p>
+		</div>
+		<div class="introCompanyInfo">
+    		<img src="/images/introCompanyInfo.png">
+    		</div>
+    		<div class="introCompanyText">
+    		<h5><b>1. 품질 우선</b></h5>
+			<p>엄선된 국내산 및 외국산 소고기만을 취급하여 고객님께 최상의 맛과 신선함을 선사합니다.</p>
+			<h5><b>2. 투명한 유통</b></h5>
+			<p>신뢰할 수 있는 유통 과정을 통해 최고급 소고기를 고객님의 식탁까지 안전하게 전달합니다.</p>
+			<h5><b>3. 젊은 열정</b></h5>
+			<p>젊은 창업자들의 열정과 혁신적인 아이디어로 차별화된 서비스를 제공합니다.</p>
+			<br>
+			<h4>주요 제품</h4>
+			<ul>
+			<li>
+				<div class="introCompanyText2">
+					<h5><b>국내산 소고기</b></h5>&nbsp;&nbsp;<p>최고급 한우, 육즙이 풍부한 다양한 부위를 만나보세요.</p>
+				</div>
+				</li>
+				<li>
+				<div class="introCompanyText2">
+					<h5><b>외국산 소고기</b></h5>&nbsp;&nbsp;<p>세계 각국의 프리미엄 소고기를 한자리에서 즐길 수 있습니다.</p>
+				</div>
+				</li>
+			</ul>
+			<p>
+				저희 <b>HANBATANG</b>은 고객님의 만족을 최우선으로 생각하며, <br>
+				항상 최고의 소고기를 제공하기 위해 노력하겠습니다. 감사합니다.
+			</p>
+    	</div>
+    </div>
+
+    <footer class="footer mt-2 pt-2">
+      <div class="container text-center">
+        <p>&copy;2024 브랜드 프리미엄소고기. ALL Rights Reserved.</p>
+        <p><a href="#">개인정보처리방침</a> | <a href="#">이용약관</a></p>
+      </div>
+    </footer>
+    <div class="fixedArea">
+        <a href="/chatbot"><img src="/images/chatbot.png"></a>
+        <a href="#"><img src="/images/top.png"></a>
+    </div>
+  </body>
+</html>

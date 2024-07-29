@@ -1,0 +1,30 @@
+$(document).ready(function(){
+    $("#questionButton1").click(function(){
+        $("#answer1").toggle("slow");
+    })
+})
+$(document).ready(function(){
+    $("#questionButton2").click(function(){
+        $("#answer2").toggle("slow");
+    })
+})
+$(document).ready(function(){
+    $("#questionButton3").click(function(){
+        $("#answer3").toggle("slow");
+    })
+})
+$(document).ready(function(){
+    $("#questionButton4").click(function(){
+        $("#answer4").toggle("slow");
+    })
+})
+$(document).ready(function(){
+    $("#questionButton5").click(function(){
+        $("#answer5").toggle("slow");
+    })
+})
+$(document).ready(function(){
+    $("#questionButton6").click(function(){
+        $("#answer6").toggle("slow");
+    })
+})
