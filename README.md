@@ -10,6 +10,7 @@
 - 다양한 소고기 확인
 - 소고기 장바구니 구매하기 상세보기
 - 회원가입 후 주문 수정
+
 ## 기술 스택
 - **프론트엔드:** React, Redux
 - **백엔드:** Node.js, Express
@@ -19,7 +20,7 @@
 ## 설치 및 실행 방법
 1. 저장소 클론:
     ```bash
-    git clone https://github.com/각자프로젝트.git
+    https://github.com/sangjunchung/Hanbatang.git
     ```
 2. 프론트엔드 설정:
     ```bash
